@@ -1,0 +1,144 @@
+/* ── COMPONENTS ── */
+
+/* Reveal animations base */
+.reveal-up,
+.reveal-text {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal-up.visible,
+.reveal-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger for reveal-up children */
+.reveal-up:nth-child(1) { transition-delay: calc(var(--delay, 0s)); }
+.reveal-up:nth-child(2) { transition-delay: calc(var(--delay, 0s) + 0.05s); }
+.reveal-up:nth-child(3) { transition-delay: calc(var(--delay, 0s) + 0.1s); }
+.reveal-up:nth-child(4) { transition-delay: calc(var(--delay, 0s) + 0.15s); }
+
+/* Project card featured */
+.project-card--featured {
+  grid-column: span 2;
+}
+
+.project-card--featured .project-card__img {
+  height: 320px;
+}
+
+/* Noise texture overlay on hero */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Marquee ticker (decorative section break) */
+.marquee-section {
+  background: var(--black);
+  padding: var(--space-4) 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.marquee-track {
+  display: flex;
+  gap: var(--space-12);
+  white-space: nowrap;
+  animation: marqueeRoll 25s linear infinite;
+}
+
+.marquee-item {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: rgba(255,255,255,0.15);
+  letter-spacing: 0.15em;
+  flex-shrink: 0;
+}
+
+.marquee-item .dot {
+  color: var(--red);
+  margin: 0 var(--space-3);
+}
+
+@keyframes marqueeRoll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Gradient divider */
+.gradient-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  margin: 0;
+}
+
+/* Form success message */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: var(--space-10);
+  color: var(--white);
+}
+
+.form-success.show { display: block; }
+
+.form-success__icon {
+  font-size: 48px;
+  margin-bottom: var(--space-4);
+}
+
+.form-success h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-2);
+}
+
+/* Tooltip on nav links */
+.nav-link[data-section]:hover::before {
+  content: attr(data-section);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.5);
+  pointer-events: none;
+  text-transform: capitalize;
+}
+
+/* Hamburger open state */
+.navbar__hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Project card hover: lift image */
+.project-card:hover .project-card__img::before {
+  color: rgba(255,255,255,0.12);
+  font-size: 72px;
+}
+
+/* Active section nav link underline anim */
+.nav-link.active::after {
+  width: 100%;
+}
