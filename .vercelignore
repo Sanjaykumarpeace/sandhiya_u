@@ -1,0 +1,9 @@
+_presenter_debug/
+{css,js,assets}/
+adobe-editedWEBM.webm
+adobe-editedWEBM-transparent.webm
+*.psd
+*.tmp
+*.log
+node_modules/
+.git/

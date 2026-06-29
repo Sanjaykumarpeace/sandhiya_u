@@ -2148,7 +2148,7 @@ body {
   width: 34px;
   height: 34px;
   background:
-    url("../{css,js,assets}/mouse-pointer.png") center center / contain no-repeat,
+    url("../assets/mouse-pointer.png") center center / contain no-repeat,
     radial-gradient(circle at 45% 45%, var(--white) 0 25%, var(--red) 26% 52%, transparent 54%);
   filter: drop-shadow(0 7px 14px rgba(0,0,0,0.34)) drop-shadow(0 0 10px rgba(255,255,255,0.28));
   position: fixed;

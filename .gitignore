@@ -1,0 +1,9 @@
+node_modules/
+.vercel/
+_presenter_debug/
+{css,js,assets}/
+adobe-editedWEBM-transparent.webm
+*.log
+*.tmp
+Thumbs.db
+.DS_Store
