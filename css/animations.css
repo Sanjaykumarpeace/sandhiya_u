@@ -139,12 +139,25 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 3px;
-  background: var(--white);
+  height: 4px;
+  background: linear-gradient(90deg, #ffffff, #ffd6d6, #ffffff);
   z-index: 200;
   width: 0%;
   transition: width 0.1s linear;
-  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+  box-shadow: 0 0 18px rgba(255,255,255,0.55), 0 0 34px rgba(214,40,40,0.3);
+}
+
+@keyframes mobileLinkIn {
+  from {
+    opacity: 0;
+    transform: translateX(22px) scale(0.98);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
 }
 
 /* Animated gradient bg on about section */

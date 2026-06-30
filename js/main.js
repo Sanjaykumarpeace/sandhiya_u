@@ -78,7 +78,11 @@
       var hamburger = document.getElementById('hamburger');
       if (mobileNav && mobileNav.classList.contains('open')) {
         mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
         hamburger && hamburger.classList.remove('open');
+        hamburger && hamburger.setAttribute('aria-expanded', 'false');
+        hamburger && hamburger.setAttribute('aria-label', 'Open navigation menu');
+        document.body.classList.remove('nav-open');
         document.body.style.overflow = '';
       }
     }

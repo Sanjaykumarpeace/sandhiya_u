@@ -4,14 +4,17 @@
 .reveal-up,
 .reveal-text {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  transform: translateY(46px) scale(0.98);
+  filter: blur(10px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out), filter 0.9s var(--ease-out);
+  will-change: opacity, transform, filter;
 }
 
 .reveal-up.visible,
 .reveal-text.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 /* Stagger for reveal-up children */
@@ -107,29 +110,16 @@
   margin-bottom: var(--space-2);
 }
 
-/* Tooltip on nav links */
-.nav-link[data-section]:hover::before {
-  content: attr(data-section);
-  position: absolute;
-  bottom: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: var(--text-xs);
-  color: rgba(255,255,255,0.5);
-  pointer-events: none;
-  text-transform: capitalize;
-}
-
 /* Hamburger open state */
 .navbar__hamburger.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
 }
 .navbar__hamburger.open span:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
 .navbar__hamburger.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Project card hover: lift image */
@@ -140,5 +130,6 @@
 
 /* Active section nav link underline anim */
 .nav-link.active::after {
-  width: 100%;
+  opacity: 1;
+  transform: scale(1);
 }
